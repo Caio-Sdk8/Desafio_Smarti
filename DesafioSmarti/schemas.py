@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel
 
 
@@ -10,7 +12,7 @@ class ContactCreate(ContactBase):
     pass
 
 class ContactUpdate(ContactBase):
-    pass
+    contactName: Optional[str] = None
 
 class Contact(ContactBase):
     id: int
