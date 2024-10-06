@@ -18,7 +18,7 @@ class ContactRepository(IContactRepository):
     def create_contact(self, contact: ContactCreate):
         try:
             valid =  validate_email(contact.email)
-            contact.email = valid
+            contact.email = valid.normalized
         except EmailNotValidError as e:
             return e
         db_contact = Contact(contactName=contact.contactName, phoneNumber=contact.phoneNumber, email=contact.email)
